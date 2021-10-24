@@ -35,6 +35,9 @@
 	if( lumode=="pitch", {
 	~pitchrunarray = List.new;
 	});
+	if( lumode=="amp", {
+	~amprunarray = List.new;
+	});
 	//buffer of
 	~runarray = List.new;
 
@@ -100,7 +103,32 @@
 
 				"Pitch Referenced: %\r\n\r\n".postf(~curpit);
 				});
-				/*----------sample lookup--*/
+				/*----------pitch lookup--*/
+
+				/*----MODE:--amp lookup--*/
+				if( lumode=="amp",{
+				~palette_scancounter=0;
+				~curamp = nil;
+
+				//scan the unified palette
+					~unifiedAmpPalette.do({ arg fin_char;
+
+						//if a match is found..
+						if((fin_char[0][0].ascii == i ),{
+							~curamp = ~unifiedAmpPalette[~palette_scancounter][1];
+							~amprunarray.add(~curamp);
+
+							"curamp".postln;
+							~curamp.postln;
+						});
+
+
+						~palette_scancounter=~palette_scancounter+1;
+					});
+
+				"Amp Referenced: %\r\n\r\n".postf(~curpit);
+				});
+				/*----------amp lookup--*/
 
 				/*---
 				-----
@@ -111,7 +139,7 @@
 			},
 			//if negative; is unicode
 			{
-				//if a Unicode Char Start
+				//if a Unicode Char Sart
 				if( (~unicodebyte_start == false),
 					{
 						//unicode byte parsing now active
@@ -193,7 +221,32 @@
 
 							"Pitch Referenced: %\r\n\r\n".postf(~curpit);
 						});
-						/*----------sample lookup--*/
+						/*----------pitch lookup--*/
+
+						/*----MODE:--amp lookup--*/
+						if( lumode=="amp",{
+							~palette_scancounter=0;
+							~curamp = nil;
+
+							//scan the unified palette
+							~unifiedAmpPalette.do({ arg fin_char;
+
+								//if a match is found..
+								if((fin_char[0] == ~uni_charbuf ),{
+									~curamp = ~unifiedAmpPalette[~palette_scancounter][1];
+									~amprunarray.add(~curamp);
+
+									"curamp".postln;
+									~curamp.postln;
+								});
+
+
+								~palette_scancounter=~palette_scancounter+1;
+							});
+
+							"Amp Referenced: %\r\n\r\n".postf(~curpit);
+						});
+						/*----------amp lookup--*/
 
 						/*---
 						-----PARSE RETURN LOGIC

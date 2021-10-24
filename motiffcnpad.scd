@@ -8,7 +8,9 @@
 	noteamp=0.5,
 	relrate=1,
 	pitch_str = "",
-	rep_num = 1;
+	pitch_gbl = 1,
+	rep_num = 1,
+	amp_str = "";
 	(
 		/*----parse sample sequence string----*/
 		//**string should load up a buffer called '~unicodebufferarray'
@@ -21,8 +23,8 @@
 
 
 		/*----parse pitch sequence string----*/
+		//**string should load up a buffer called '~pitchrunarray'
 		if(pitch_str != "",{
-			//**string should load up a buffer called '~pitchrunarray'
 			~chuckparse.value(pitch_str, lumode:"pitch");
 
 			~chromsc = Scale.chromatic;
@@ -46,47 +48,39 @@
 				});
 
 				//add to list of chromas
-				~chromseq.add(~chromrat_temp);
+				~chromseq.add(~chromrat_temp*pitch_gbl);
 			};
-
-			~classrate = Pseq(~chromseq,rep_num);
-
-			"did the !==".postln;
 
 		},{
 			//stores lists of chroma (pre-Pseq)
 			~chromseq = List.new;
 
-			~unicodebufferarray.do{arg i; ~chromseq.add(1)};
-
-			~classrate = Pseq(~chromseq,rep_num);
-
-			"did the !==".postln;
+			~unicodebufferarray.do{arg i; ~chromseq.add(1*pitch_gbl)};
 
 		});
 
-		~chromseq.postln;
+		/*----parse pitch sequence string----*/
+		//**string should load up a buffer called '~amprunarray'
+		if(amp_str != "",{
 
-/*		~classrate = Pseq([1,~chromsc.ratios[1],~chromsc.ratios[2],~chromsc.ratios[3],
-			                 ~chromsc.ratios[4],~chromsc.ratios[5],~chromsc.ratios[6],~chromsc.ratios[7]
-		], 1);*/
+			~chuckparse.value(amp_str, lumode:"amp");
 
-/*        ~classrate = Pseq([1,1/~chromsc.ratios[1],1/~chromsc.ratios[2],1/~chromsc.ratios[3],
-			                 1/~chromsc.ratios[4],1/~chromsc.ratios[5],1/~chromsc.ratios[6],1/~chromsc.ratios[7]
-		], 1);*/
+		},{
+			//stores lists of chroma (pre-Pseq)
+			~amprunarray = List.new;
 
-/*		~unicodebufferarray.postln;
+			~unicodebufferarray.do{arg i; ~amprunarray.add(noteamp)};
 
-		~pitchrunarray.postln;*/
+		});
 
 		Pbind(
 			\instrument,\oneLoop,
 			\bufnum, Pseq(~unicodebufferarray, rep_num),
-			\amp,noteamp,
+			\amp,Pseq(~amprunarray, rep_num),
 			\dur, eventdur,
 			\sus_time, notedur,
 			\rel_time, reltime,
-			\rate, ~classrate,
+			\rate, Pseq(~chromseq, rep_num),
 			\legato, 0.1
 
 		).play();
@@ -100,12 +94,23 @@
 
 ~totreps = 4;
 
+/*~coderun.value("cccccccccccccccc",eventdur:0.125/2, notedur:0.001,
+	 pitch_str:"____5555eeee2222",
+
+);*/
+
+/*~coderun.value("cccc",eventdur:0.25, notedur:0.1,pitch_gbl:0.5,
+	   amp_str:"2468",
+);*/
+
 ~coderun.value("*__*__*_*__*__*_",
 	 pitch_str:"___1__b____1__5_",
+	pitch_gbl:1.6,
 	rep_num:~totreps
 );
+/*
 ~coderun.value("⊖__⊖__⊖_", eventdur: 0.25, rep_num:4*~totreps);
-);
+);*/
 
 );
 

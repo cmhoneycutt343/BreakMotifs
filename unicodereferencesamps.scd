@@ -1,45 +1,45 @@
-	//☰☱☲☳☴☵☶☷
+//☰☱☲☳☴☵☶☷
 
 //☥☦☧☨☩
 (
 //basic lookup
 ~unifiedSamplePalette =
-   [["⊖","Amen Sliced-bounce-33.wav"],
-	["⊘","Amen Sliced-bounce-34.wav"],
-	["☥","Amen Sliced-bounce-35.wav"],
-	["⠀","Amen Sliced-bounce-36.wav"],
-	["⫀","Amen Sliced-bounce-37.wav"],
-	["⠁","Amen Sliced-bounce-38.wav"],
-	["⫁","Amen Sliced-bounce-39.wav"],
-	["⊗","Amen Sliced-bounce-40.wav"],
-	["☦","Amen Sliced-bounce-41.wav"],
-	["⫂","Amen Sliced-bounce-42.wav"],
-	["⠂","Amen Sliced-bounce-43.wav"],
-	["⫃","Amen Sliced-bounce-44.wav"],
-	["⊙","Amen Sliced-bounce-45.wav"],
-	["⊚","Amen Sliced-bounce-46.wav"],
-	["☧","Amen Sliced-bounce-47.wav"],
-	["⠃","Amen Sliced-bounce-48.wav"],
-	["⫄","Amen Sliced-bounce-49.wav"],
-	["⠄","Amen Sliced-bounce-50.wav"],
-	["⫅","Amen Sliced-bounce-51.wav"],
-	["⊛","Amen Sliced-bounce-52.wav"],
-	["◸","Amen Sliced-bounce-53.wav"],
-	["☨","Amen Sliced-bounce-54.wav"],
-	["⠅","Amen Sliced-bounce-55.wav"],
-	["⫆","Amen Sliced-bounce-56.wav"],
-	["⊕","Amen Sliced-bounce-57.wav"],
-	["◹","Amen Sliced-bounce-58.wav"],
-	["☩","Amen Sliced-bounce-59.wav"],
-	["⠆","Amen Sliced-bounce-60.wav"],
-	["⫇","Amen Sliced-bounce-61.wav"],
-	["⠇","Amen Sliced-bounce-62.wav"],
-	["⫈","Amen Sliced-bounce-63.wav"],
-	["⏚","Amen Sliced-bounce-64.wav"],
-	["_","silence.wav"],
-	["*","chime.wav"],
-	["b","Amen Sliced-bounce-34.wav"],
-	["c","Amen Sliced-bounce-35.wav"]
+[["⊖","Amen Sliced-bounce-33.wav"],
+["⊘","Amen Sliced-bounce-34.wav"],
+["☥","Amen Sliced-bounce-35.wav"],
+["⠀","Amen Sliced-bounce-36.wav"],
+["⫀","Amen Sliced-bounce-37.wav"],
+["⠁","Amen Sliced-bounce-38.wav"],
+["⫁","Amen Sliced-bounce-39.wav"],
+["⊗","Amen Sliced-bounce-40.wav"],
+["☦","Amen Sliced-bounce-41.wav"],
+["⫂","Amen Sliced-bounce-42.wav"],
+["⠂","Amen Sliced-bounce-43.wav"],
+["⫃","Amen Sliced-bounce-44.wav"],
+["⊙","Amen Sliced-bounce-45.wav"],
+["⊚","Amen Sliced-bounce-46.wav"],
+["☧","Amen Sliced-bounce-47.wav"],
+["⠃","Amen Sliced-bounce-48.wav"],
+["⫄","Amen Sliced-bounce-49.wav"],
+["⠄","Amen Sliced-bounce-50.wav"],
+["⫅","Amen Sliced-bounce-51.wav"],
+["⊛","Amen Sliced-bounce-52.wav"],
+["◸","Amen Sliced-bounce-53.wav"],
+["☨","Amen Sliced-bounce-54.wav"],
+["⠅","Amen Sliced-bounce-55.wav"],
+["⫆","Amen Sliced-bounce-56.wav"],
+["⊕","Amen Sliced-bounce-57.wav"],
+["◹","Amen Sliced-bounce-58.wav"],
+["☩","Amen Sliced-bounce-59.wav"],
+["⠆","Amen Sliced-bounce-60.wav"],
+["⫇","Amen Sliced-bounce-61.wav"],
+["⠇","Amen Sliced-bounce-62.wav"],
+["⫈","Amen Sliced-bounce-63.wav"],
+["⏚","Amen Sliced-bounce-64.wav"],
+["_","silence.wav"],
+["*","chime.wav"],
+["b","Amen Sliced-bounce-34.wav"],
+["c","Amen Sliced-bounce-35.wav"]
 ];
 
 ~unifiedPitchPalette =
@@ -67,5 +67,25 @@
 ["i",-9],
 ["j",-10],
 ["k",-11]];
+
+~unifiedAmpPalette =
+[["0",0],
+["1",1/16],
+["2",2/16],
+["3",3/16],
+["4",4/16],
+["5",5/16],
+["6",6/16],
+["7",7/16],
+["8",8/16],
+["9",9/16],
+["A",10/16],
+["B",11/16],
+["C",12/16],
+["D",13/16],
+["E",14/16],
+["F",15/16]];
+
+
 )
 

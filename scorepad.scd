@@ -46,25 +46,17 @@ Buffer.freeAll;
 ~scorepart1 = {
 
 
-/*	    //kicks......"⊖⊘⊙⊚⊛"
+/*
+	    //kicks......"⊖⊘⊙⊚⊛"
 	    //kick hat..."⊗⊕"
 	    //snares....."☥☦☧☨☩"
 	    //hihats....."⠀⠁⠂⠃⠄⠅⠆⠇"
 	    //rides......"◸◹"
 	    //perccs....."⫀⫁⫂⫃⫄⫅⫆⫇⫈"
 	    //ride stop..."⏚"
-
-
-	~leng = ~coderun.value(
-		          "☨☨☨☨☨☨☨☨",
-		pitch_str:"01234567",
-		eventdur:0.5, notedur:1);
-	~leng.wait;*/
-
+*/
 
 	~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
-	//~leng.wait;
-
 	~leng = ~coderun.value(
 		          "☨☨☨_☨_☨_☨_☨_☨_☨_",
 		pitch_str:"06a0b0c0d0e0f0g0",
@@ -74,8 +66,6 @@ Buffer.freeAll;
 	~leng.wait.postln;
 
 	~leng = ~coderun.value("⊖⊖⊘⊘☥☥⊖⊖⊘_☥_⫀⫀⫀_", eventdur:0.25, notedur:1);
-	//~leng.wait;
-
 	~leng = ~coderun.value(
 		          "☨☨☨☨☨☨☨☨☨☨☨☨☨☨⏚_",
 		pitch_str:"06aabbccddeef0g0",
@@ -84,25 +74,71 @@ Buffer.freeAll;
 	"weird leng".postln;
 	~leng.wait.postln;
 
+	~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
+	~leng = ~coderun.value(
+		          "☨☨☨_☨_☨_☨_☨_☨_☨_",
+		pitch_str:"06a0b0c0d0e0f0g0",
+		eventdur:0.25,
+		notedur:1);
+	"weird leng".postln;
+	~leng.wait.postln;
+
+	~leng = ~coderun.value("⊖⊖⊘⊘☥☥⊖", eventdur:0.25, notedur:1);
+	~leng = ~coderun.value(
+		          "☨☨☨☨☨☨☨☨",
+		pitch_str:"06aabbcc",
+		eventdur:0.25,
+		notedur:1);
+	~leng.wait.postln;
+
+	~leng = ~coderun.value("☥☥☥☥☥☥☥☥☥☥☥☥☥☥☥☥",eventdur:0.125, notedur:1,
+	               amp_str:"445566778899AABB");
+	~leng = ~coderun.value("⠇⠇⠇⠇⠇⠇⠇⠇",eventdur:0.25, notedur:1,
+		           amp_str:"456789AB",
+		         pitch_str:"c_c_c_c_");
+	~leng = ~coderun.value("____⏚⏚⏚⏚",eventdur:0.25, notedur:0.1,
+		            amp_str:"456789AB",
+		          pitch_str:"____630f"  );
+   ~leng.wait;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
 	// ~leng.wait;
-	//
+	// //
 	// ~leng = ~coderun.value("⏚___☨_⏚___☨_☩_⫂☨", eventdur:0.25, notedur:1);
 	// ~leng.wait;
-	//
+	// //
 	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
 	// ~leng.wait;
-	//
+	// //
 	// ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
 	// ~leng.wait;
-	//
+	// //
 	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
 	// ~leng.wait;
-	//
+	// //
 	// ~leng = ~coderun.value("☧_⠀⫂⠀⫂☧_⠀⫂⠀⫂⫃⫄⫅⫆", eventdur:0.25, notedur:1);
 	// ~leng.wait;
 
-
+	~scorepart1.fork;
 };
 
 //plays the parts
