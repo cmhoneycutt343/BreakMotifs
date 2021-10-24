@@ -30,6 +30,8 @@
 
 	//buffer that will hold buffer objects
 	~unicodebufferarray = List.new;
+	//buffer of
+	~runarray = List.new;
 
 	//scan each byte in string
 	~mybbody.do({ arg i;

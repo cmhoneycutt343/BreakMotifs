@@ -142,12 +142,10 @@
 
 		~classrate = 2;
 
-		~runarray = List.new(~unicodebufferarray.size);
 		~runarray.fill(eventdur);
 
-		"+++".postln;
-		~bufferarray.postln;
-		~unicodebufferarray.postln;
+		~unicodebufferarray.do{arg i; ~runarray.add(0.5)};
+
 
 		Pbind(
 			\instrument,\oneLoop,
@@ -163,11 +161,11 @@
 
 		~motifleng = 0;
 		~runarray.do({arg item; ~motifleng=~motifleng+item});
-		~motifleng;
+		~motifleng=~motifleng*(eventdur*2);
 
 )};
 
-~coderun.value("abababbabababbaa",eventdur:0.5);
+~coderun.value("aaaa",eventdur:0.5);
 
 )
 
@@ -175,4 +173,3 @@
 
 
 
-~unicodebufferarray.size;
