@@ -14,9 +14,17 @@
 	["j","MaxV - FX 10.WAV"],
 	["k","MaxV - FX 11.WAV",0.25],
 	["l","MaxV - FX 12.WAV",0.25],
-	[" ","silence.wav"]
+	["_","silence.wav"],
+	["p","Simplosive-ElectroBass-001.wav"]
 ];
 
-~asciiPalette[9][2].postln;
+
+~uniCodePalette =
+   [["顔","MaxV - FX 1.WAV"],
+	["文","MaxV - FX 2.WAV"],
+	["字","MaxV - FX 3.WAV"],
+];
+
+
 
 )
