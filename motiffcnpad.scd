@@ -134,13 +134,14 @@
 	eventdur=0.5, //event duration
 	notedur=1, //note duration
 	reltime=0.05, //release time of env
-	noteamp=0.5;
+	noteamp=0.5,
+	relrate=1;
 	(
 		//parse string
 		//**string should load up a buffer called '~unicodebufferarray'
 		~chuckparse.value(in_str);
 
-		~classrate = 2;
+		~classrate = relrate;
 
 		~runarray.fill(eventdur);
 

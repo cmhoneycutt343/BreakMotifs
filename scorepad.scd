@@ -36,7 +36,7 @@ s.boot;
 
 /*3. --------Motif SCORE---------*/
 (
-~bpm = 140;
+~bpm = 180;
 TempoClock.tempo = ~bpm/60;
 
 //stop running code and free up buffer
@@ -45,35 +45,72 @@ Buffer.freeAll;
 
 ~scorepart1 = {
 
-	~leng = ~coderun.value("g  g  g  g  g g ", eventdur:0.5);
 
+/*	    //kicks
+		~leng = ~coderun.value("⊖⊘⊙⊚⊛", eventdur:1, notedur:0.1);
+        ~leng.wait;
 
+	    //kick hat
+	    ~leng = ~coderun.value("⊗⊕", eventdur:1, notedur:0.1);
+	    ~leng.wait;
 
-	~leng = ~coderun.value("ajijijij", eventdur:0.25);
-	~leng = ~coderun.value("a  a  a ", eventdur:0.25);
-	~leng = ~coderun.value("b  db d ", eventdur:0.25);
-	~leng.wait;
+	    //snares
+	    ~leng = ~coderun.value("☥☦☧☨☩", eventdur:1, notedur:0.1);
+        ~leng.wait;
+
+	    //hihats
+	    ~leng = ~coderun.value("⠀⠁⠂⠃⠄⠅⠆⠇", eventdur:1, notedur:0.1);
+        ~leng.wait;
+
+	    //rides
+	    ~leng = ~coderun.value("◸◹", eventdur:1, notedur:0.1);
+        ~leng.wait;
+
+	    //perccs
+	    ~leng = ~coderun.value("⫀⫁⫂⫃⫄⫅⫆⫇⫈", eventdur:0.5, notedur:0.1);
+    	~leng.wait;
+
+	    //ride stop
+	    ~leng = ~coderun.value("⏚", eventdur:1);
+	    ~leng.wait;*/
 	//
 
-	/*--potentiall soon deprecated examples--*/
-	// ~leng = ~cage.value(1,0,2,notedur:0.1,eventdur:1);
-	// ~leng.wait;
-	//
-	// ~leng = ~pitchroll.value(3, eventdur:0.25,stepsin:4);
-	// ~leng.wait;
-	//
-	// ~leng = ~run.value(5,6,7,8, eventdur:0.5, notedur:0.1);
-	// ~leng.wait;
+	    ~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
+	    ~coderun.value("˚__˚__˚__˚__˚_˚_", eventdur:0.5, notedur:0.25);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("⏚___☨_⏚___☨_☩_⫂☨", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+		~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	    ~coderun.value("˚__˚__˚__˚__˚_˚_", eventdur:0.5, notedur:0.25);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+	    ~leng = ~coderun.value("☧_⠀⫂⠀⫂☧_⠀⫂⠀⫂⫃⫄⫅⫆", eventdur:0.25, notedur:1);
+	    ~leng.wait;
+
+	    //~leng = ~coderun.value("խ", eventdur:0.25);
+/*				~leng = ~coderun.value("a__a__a_", eventdur:0.25);
+		~leng = ~coderun.value("b__db_d_", eventdur:0.25);*/
+
+
+		//loops the sub
+		~scorepart1.fork;
 };
 
-
+//plays the parts
 ~scorepart1.fork;
 
-)
-
-
-(
-~bpm = 180;
-TempoClock.tempo = ~bpm/60;
-~chuckparse.value("顔文字");
 )

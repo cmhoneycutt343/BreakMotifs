@@ -48,11 +48,11 @@
 				~cursam = nil;
 
 				//scan the ascii palette
-				~asciiPalette.do({ arg fin_char;
+				~unifiedPalette.do({ arg fin_char;
 
 					//if a match is found..
 					if((fin_char[0][0].ascii == i.postln ),{
-						~cursam = ~asciiPalette[~palette_scancounter][1];
+						~cursam = ~unifiedPalette[~palette_scancounter][1];
 						~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
 					});
 
@@ -97,6 +97,25 @@
 					{
 						~unibiddispbuf=~uni_charbuf.ascii;
 						"[%] Byte %; Char % -> Unicode Char [Hex: %] (% byte)\r\n".postf(~uni_charbuf,~byteindex-~unicodebyte_len+1, ~totchar,~unibiddispbuf.collect(_.asHexString(2)),~unicodebyte_len);
+
+						~palette_scancounter=0;
+						~cursam = nil;
+
+						//scan the Unicode palette
+						~unifiedPalette.do({ arg fin_char;
+
+							//comnpare unicode character to every entry in pallette
+							//if a match is found..
+							if((fin_char[0] == ~uni_charbuf ),{
+								~cursam = ~unifiedPalette[~palette_scancounter][1];
+								~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
+							});
+
+							~palette_scancounter=~palette_scancounter+1;
+						});
+
+
+						"Sample Referenced: %\r\n\r\n".postf(~cursam);
 						~totchar = ~totchar+1;
 
 						~unicodebyte_counter = 0;
