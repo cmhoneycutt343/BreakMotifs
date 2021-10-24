@@ -3,7 +3,7 @@
 //☥☦☧☨☩
 (
 //basic lookup
-~unifiedPalette =
+~unifiedSamplePalette =
    [["⊖","Amen Sliced-bounce-33.wav"],
 	["⊘","Amen Sliced-bounce-34.wav"],
 	["☥","Amen Sliced-bounce-35.wav"],
@@ -36,6 +36,20 @@
 	["⠇","Amen Sliced-bounce-62.wav"],
 	["⫈","Amen Sliced-bounce-63.wav"],
 	["⏚","Amen Sliced-bounce-64.wav"],
-	["_","silence.wav"]];
+	["_","silence.wav"],
+	["a","Amen Sliced-bounce-33.wav"],
+	["b","Amen Sliced-bounce-34.wav"],
+	["c","Amen Sliced-bounce-35.wav"]
+];
+
+
+~unifiedPitchPalette =
+   [["0",0],
+	["1",1],
+	["2",2],
+	["3",3],
+	["a",-1],
+	["b",-2],
+	["c",-3]];
 )
 

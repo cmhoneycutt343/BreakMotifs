@@ -8,7 +8,7 @@
 //*Unicode - 2 Byte;
 //*Unicode - 4 Byte;
 (
-~chuckparse = { arg mystring;
+~chuckparse = { arg mystring, lumode="sample";
 	~mystring = mystring;
 
 	"\r\nString input: %\r\n\r\n".postf(~mystring);
@@ -29,7 +29,12 @@
 	~byteindex = 0;
 
 	//buffer that will hold buffer objects
+	if( lumode=="sample", {
 	~unicodebufferarray = List.new;
+	});
+	if( lumode=="pitch", {
+	~pitchrunarray = List.new;
+	});
 	//buffer of
 	~runarray = List.new;
 
@@ -44,23 +49,73 @@
 			{
 				"[%] Byte %; Char % -> Ascii Char [Hex: %] \r\n".postf(i.asAscii,~byteindex, ~totchar,i.asHexString(2));
 
+
+				/*----MODE:--sample lookup--*/
+				if( lumode=="sample",{
 				~palette_scancounter=0;
 				~cursam = nil;
 
-				//scan the ascii palette
-				~unifiedPalette.do({ arg fin_char;
+				//scan the unified palette
+					~unifiedSamplePalette.do({ arg fin_char;
 
-					//if a match is found..
-					if((fin_char[0][0].ascii == i.postln ),{
-						~cursam = ~unifiedPalette[~palette_scancounter][1];
-						~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
+						//if a match is found..
+						if((fin_char[0][0].ascii == i.postln ),{
+							~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
+							~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
+
+							"cursum".postln;
+							~cursum.postln;
+						});
+
+						~palette_scancounter=~palette_scancounter+1;
 					});
 
-					~palette_scancounter=~palette_scancounter+1;
-				});
-
-
 				"Sample Referenced: %\r\n\r\n".postf(~cursam);
+				});
+				/*----------sample lookup--*/
+
+				/*----MODE:--pitch lookup--*/
+				if( lumode=="pitch",{
+				~palette_scancounter=0;
+				~curpit = nil;
+
+				//scan the unified palette
+					~unifiedPitchPalette.do({ arg fin_char;
+
+						//if a match is found..
+						if((fin_char[0][0].ascii == i.postln ),{
+							~curpit = ~unifiedPitchPalette[~palette_scancounter][1];
+							~pitchrunarray.add(~curpit);
+
+							"cursum".postln;
+							~cursum.postln;
+						});
+
+						~palette_scancounter=~palette_scancounter+1;
+					});
+
+				"Pitch Referenced: %\r\n\r\n".postf(~curpit);
+				});
+				/*----------sample lookup--*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				//ascii chrac received; increment counter
 				~totchar = ~totchar+1;
 			},
 			//if negative; is unicode
@@ -98,16 +153,18 @@
 						~unibiddispbuf=~uni_charbuf.ascii;
 						"[%] Byte %; Char % -> Unicode Char [Hex: %] (% byte)\r\n".postf(~uni_charbuf,~byteindex-~unicodebyte_len+1, ~totchar,~unibiddispbuf.collect(_.asHexString(2)),~unicodebyte_len);
 
+						/*----MODE:--sample lookup--*/
+						if( lumode=="sample",{
 						~palette_scancounter=0;
 						~cursam = nil;
 
 						//scan the Unicode palette
-						~unifiedPalette.do({ arg fin_char;
+						~unifiedSamplePalette.do({ arg fin_char;
 
 							//comnpare unicode character to every entry in pallette
 							//if a match is found..
 							if((fin_char[0] == ~uni_charbuf ),{
-								~cursam = ~unifiedPalette[~palette_scancounter][1];
+								~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
 								~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
 							});
 
@@ -116,6 +173,10 @@
 
 
 						"Sample Referenced: %\r\n\r\n".postf(~cursam);
+						});
+						/*----------sample lookup--*/
+
+						//ascii chrac received; increment counter
 						~totchar = ~totchar+1;
 
 						~unicodebyte_counter = 0;

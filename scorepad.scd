@@ -36,7 +36,7 @@ s.boot;
 
 /*3. --------Motif SCORE---------*/
 (
-~bpm = 180;
+~bpm = 120;
 TempoClock.tempo = ~bpm/60;
 
 //stop running code and free up buffer
@@ -75,36 +75,35 @@ Buffer.freeAll;
 	    ~leng.wait;*/
 	//
 
-	    ~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
-	    ~coderun.value("˚__˚__˚__˚__˚_˚_", eventdur:0.5, notedur:0.25);
-	    ~leng.wait;
+	~leng = ~coderun.value(
+		         "☨_☨_☨_☨_☨_☨_☨___",
+		pitchstr:"________________",
+		eventdur:0.25, notedur:1);
+	~leng.wait;
 
-	    ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-	    ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-	    ~leng = ~coderun.value("⏚___☨_⏚___☨_☩_⫂☨", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-		~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
-	    ~coderun.value("˚__˚__˚__˚__˚_˚_", eventdur:0.5, notedur:0.25);
-	    ~leng.wait;
-
-	    ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-	    ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-	    ~leng = ~coderun.value("☧_⠀⫂⠀⫂☧_⠀⫂⠀⫂⫃⫄⫅⫆", eventdur:0.25, notedur:1);
-	    ~leng.wait;
-
-	    //~leng = ~coderun.value("խ", eventdur:0.25);
-/*				~leng = ~coderun.value("a__a__a_", eventdur:0.25);
-		~leng = ~coderun.value("b__db_d_", eventdur:0.25);*/
-
+	// ~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⏚___☨_⏚___☨_☩_⫂☨", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
+	// ~leng.wait;
+	//
+	// ~leng = ~coderun.value("☧_⠀⫂⠀⫂☧_⠀⫂⠀⫂⫃⫄⫅⫆", eventdur:0.25, notedur:1);
+	// ~leng.wait;
 
 		//loops the sub
 		~scorepart1.fork;
