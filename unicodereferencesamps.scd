@@ -13,7 +13,9 @@
 	["i","MaxV - FX 9.WAV"],
 	["j","MaxV - FX 10.WAV"],
 	["k","MaxV - FX 11.WAV",0.25],
-	["l","MaxV - FX 12.WAV",0.25]];
+	["l","MaxV - FX 12.WAV",0.25],
+	[" ","silence.wav"]
+];
 
 ~asciiPalette[9][2].postln;
 

@@ -36,12 +36,26 @@ s.boot;
 
 /*3. --------Motif SCORE---------*/
 (
-~bpm = 180;
+~bpm = 140;
 TempoClock.tempo = ~bpm/60;
 
+//stop running code and free up buffer
+//CmdPeriod.run
 Buffer.freeAll;
 
 ~scorepart1 = {
+
+	~leng = ~coderun.value("g  g  g  g  g g ", eventdur:0.5);
+
+
+
+	~leng = ~coderun.value("ajijijij", eventdur:0.25);
+	~leng = ~coderun.value("a  a  a ", eventdur:0.25);
+	~leng = ~coderun.value("b  db d ", eventdur:0.25);
+	~leng.wait;
+	//
+
+	/*--potentiall soon deprecated examples--*/
 	// ~leng = ~cage.value(1,0,2,notedur:0.1,eventdur:1);
 	// ~leng.wait;
 	//
@@ -50,17 +64,6 @@ Buffer.freeAll;
 	//
 	// ~leng = ~run.value(5,6,7,8, eventdur:0.5, notedur:0.1);
 	// ~leng.wait;
-
-/*	~leng = ~coderun.value("aaaaaaaa", eventdur:0.5);
-	~leng = ~coderun.value("bdbebfbg", eventdur:0.5);
-	~leng.wait;*/
-
-	//~leng = ~coderun.value("ijijijijijijijij", eventdur:0.5);
-	~leng = ~coderun.value("adee", eventdur:0.25);
-	~leng = ~coderun.value("b", eventdur:1);
-	1.wait;
-
-	~scorepart1.fork;
 };
 
 
