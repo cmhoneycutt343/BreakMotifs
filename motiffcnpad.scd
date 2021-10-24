@@ -7,7 +7,8 @@
 	reltime=0.05, //release time of env
 	noteamp=0.5,
 	relrate=1,
-	pitch_str = "";
+	pitch_str = "",
+	rep_num = 1;
 	(
 		/*----parse sample sequence string----*/
 		//**string should load up a buffer called '~unicodebufferarray'
@@ -50,7 +51,7 @@
 				~chromseq.add(~chromrat_temp);
 			};
 
-			~classrate = Pseq(~chromseq,1);
+			~classrate = Pseq(~chromseq,rep_num);
 
 			"did the !==".postln;
 
@@ -60,7 +61,7 @@
 
 			~unicodebufferarray.do{arg i; ~chromseq.add(1)};
 
-			~classrate = Pseq(~chromseq,1);
+			~classrate = Pseq(~chromseq,rep_num);
 
 			"did the !==".postln;
 
@@ -82,7 +83,7 @@
 
 		Pbind(
 			\instrument,\oneLoop,
-			\bufnum, Pseq(~unicodebufferarray, 1),
+			\bufnum, Pseq(~unicodebufferarray, rep_num),
 			\amp,noteamp,
 			\dur, eventdur,
 			\sus_time, notedur,
@@ -99,9 +100,12 @@
 
 )};
 
-~coderun.value("ccccccccc",
-	 pitch_str:"012345678",
-	eventdur:0.125
+~coderun.value("a__a__a_a__a__a_",
+	 pitch_str:"000100b000010050"
+);
+~coderun.value("⊖__⊖__⊖_", eventdur: 0.25, rep_num:4);
+);
+
 );
 
 

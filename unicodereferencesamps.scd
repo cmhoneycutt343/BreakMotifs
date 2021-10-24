@@ -37,7 +37,7 @@
 	["⫈","Amen Sliced-bounce-63.wav"],
 	["⏚","Amen Sliced-bounce-64.wav"],
 	["_","silence.wav"],
-	["a","Amen Sliced-bounce-33.wav"],
+	["a","chime.wav"],
 	["b","Amen Sliced-bounce-34.wav"],
 	["c","Amen Sliced-bounce-35.wav"]
 ];

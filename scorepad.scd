@@ -46,35 +46,15 @@ Buffer.freeAll;
 ~scorepart1 = {
 
 
-/*	    //kicks
-		~leng = ~coderun.value("⊖⊘⊙⊚⊛", eventdur:1, notedur:0.1);
-        ~leng.wait;
+/*	    //kicks......"⊖⊘⊙⊚⊛"
+	    //kick hat..."⊗⊕"
+	    //snares....."☥☦☧☨☩"
+	    //hihats....."⠀⠁⠂⠃⠄⠅⠆⠇"
+	    //rides......"◸◹"
+	    //perccs....."⫀⫁⫂⫃⫄⫅⫆⫇⫈"
+	    //ride stop..."⏚"
 
-	    //kick hat
-	    ~leng = ~coderun.value("⊗⊕", eventdur:1, notedur:0.1);
-	    ~leng.wait;
 
-	    //snares
-	    ~leng = ~coderun.value("☥☦☧☨☩", eventdur:1, notedur:0.1);
-        ~leng.wait;
-
-	    //hihats
-	    ~leng = ~coderun.value("⠀⠁⠂⠃⠄⠅⠆⠇", eventdur:1, notedur:0.1);
-        ~leng.wait;
-
-	    //rides
-	    ~leng = ~coderun.value("◸◹", eventdur:1, notedur:0.1);
-        ~leng.wait;
-
-	    //perccs
-	    ~leng = ~coderun.value("⫀⫁⫂⫃⫄⫅⫆⫇⫈", eventdur:0.5, notedur:0.1);
-    	~leng.wait;
-
-	    //ride stop
-	    ~leng = ~coderun.value("⏚", eventdur:1);
-	    ~leng.wait;*/
-	//
-/*
 	~leng = ~coderun.value(
 		          "☨☨☨☨☨☨☨☨",
 		pitch_str:"01234567",
@@ -83,19 +63,27 @@ Buffer.freeAll;
 
 
 	~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
-	~leng.wait;
+	//~leng.wait;
 
 	~leng = ~coderun.value(
-		          "☨☨☨☨☨☨☨☨",
-		pitch_str:"0abcdefg"
-		, notedur:1);
+		          "☨☨☨_☨_☨_☨_☨_☨_☨_",
+		pitch_str:"06a0b0c0d0e0f0g0",
+		eventdur:0.25,
+		notedur:1);
 	"weird leng".postln;
 	~leng.wait.postln;
 
-	//
-	~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
-	~leng.wait;
-	//
+	~leng = ~coderun.value("⊖⊖⊘⊘☥☥⊖⊖⊘_☥_⫀⫀⫀_", eventdur:0.25, notedur:1);
+	//~leng.wait;
+
+	~leng = ~coderun.value(
+		          "☨☨☨☨☨☨☨☨☨☨☨☨☨☨⏚_",
+		pitch_str:"06aabbccddeef0g0",
+		eventdur:0.25,
+		notedur:1);
+	"weird leng".postln;
+	~leng.wait.postln;
+
 	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
 	// ~leng.wait;
 	//
