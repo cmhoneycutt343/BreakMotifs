@@ -37,13 +37,14 @@
 	["⫈","Amen Sliced-bounce-63.wav"],
 	["⏚","Amen Sliced-bounce-64.wav"],
 	["_","silence.wav"],
-	["a","chime.wav"],
+	["*","chime.wav"],
 	["b","Amen Sliced-bounce-34.wav"],
 	["c","Amen Sliced-bounce-35.wav"]
 ];
 
 ~unifiedPitchPalette =
-[["0",0],
+[["_",0],
+["0",0],
 ["1",1],
 ["2",2],
 ["3",3],

@@ -40,11 +40,9 @@
 				//get ratio (positive or negative)
 				if (i>=0,{
 					~chromrat_temp=~chromsc.ratios[i];
-					"pos".postln;
 				});
 				if (i<0,{
 					~chromrat_temp=1/~chromsc.ratios[i.abs];
-					"neg".postln;
 				});
 
 				//add to list of chromas
@@ -100,10 +98,13 @@
 
 )};
 
-~coderun.value("a__a__a_a__a__a_",
-	 pitch_str:"000100b000010050"
+~totreps = 4;
+
+~coderun.value("*__*__*_*__*__*_",
+	 pitch_str:"___1__b____1__5_",
+	rep_num:~totreps
 );
-~coderun.value("⊖__⊖__⊖_", eventdur: 0.25, rep_num:4);
+~coderun.value("⊖__⊖__⊖_", eventdur: 0.25, rep_num:4*~totreps);
 );
 
 );

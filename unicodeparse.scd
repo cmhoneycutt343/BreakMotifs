@@ -94,6 +94,7 @@
 							~cursum.postln;
 						});
 
+
 						~palette_scancounter=~palette_scancounter+1;
 					});
 
