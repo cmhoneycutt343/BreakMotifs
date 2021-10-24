@@ -49,6 +49,9 @@
 			{
 				"[%] Byte %; Char % -> Ascii Char [Hex: %] \r\n".postf(i.asAscii,~byteindex, ~totchar,i.asHexString(2));
 
+				/*---
+				-----ASCII PARSE RETURN LOGIC
+				---*/
 
 				/*----MODE:--sample lookup--*/
 				if( lumode=="sample",{
@@ -59,7 +62,7 @@
 					~unifiedSamplePalette.do({ arg fin_char;
 
 						//if a match is found..
-						if((fin_char[0][0].ascii == i.postln ),{
+						if((fin_char[0][0].ascii == i ),{
 							~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
 							~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
 
@@ -83,7 +86,7 @@
 					~unifiedPitchPalette.do({ arg fin_char;
 
 						//if a match is found..
-						if((fin_char[0][0].ascii == i.postln ),{
+						if((fin_char[0][0].ascii == i ),{
 							~curpit = ~unifiedPitchPalette[~palette_scancounter][1];
 							~pitchrunarray.add(~curpit);
 
@@ -98,22 +101,9 @@
 				});
 				/*----------sample lookup--*/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+				/*---
+				-----
+				---*/
 
 				//ascii chrac received; increment counter
 				~totchar = ~totchar+1;
@@ -153,6 +143,10 @@
 						~unibiddispbuf=~uni_charbuf.ascii;
 						"[%] Byte %; Char % -> Unicode Char [Hex: %] (% byte)\r\n".postf(~uni_charbuf,~byteindex-~unicodebyte_len+1, ~totchar,~unibiddispbuf.collect(_.asHexString(2)),~unicodebyte_len);
 
+						/*---
+						-----UNICODE PARSE RETURN LOGIC
+						---*/
+
 						/*----MODE:--sample lookup--*/
 						if( lumode=="sample",{
 						~palette_scancounter=0;
@@ -175,6 +169,34 @@
 						"Sample Referenced: %\r\n\r\n".postf(~cursam);
 						});
 						/*----------sample lookup--*/
+
+						/*----MODE:--pitch lookup--*/
+						if( lumode=="pitch",{
+							~palette_scancounter=0;
+							~curpit = nil;
+
+							//scan the unified palette
+							~unifiedPitchPalette.do({ arg fin_char;
+
+								//if a match is found..
+								if((fin_char[0] == ~uni_charbuf ),{
+									~curpit = ~unifiedPitchPalette[~palette_scancounter][1];
+									~pitchrunarray.add(~curpit);
+
+									"cursum".postln;
+									~cursum.postln;
+								});
+
+								~palette_scancounter=~palette_scancounter+1;
+							});
+
+							"Pitch Referenced: %\r\n\r\n".postf(~curpit);
+						});
+						/*----------sample lookup--*/
+
+						/*---
+						-----PARSE RETURN LOGIC
+						---*/
 
 						//ascii chrac received; increment counter
 						~totchar = ~totchar+1;

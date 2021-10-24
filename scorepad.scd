@@ -74,18 +74,27 @@ Buffer.freeAll;
 	    ~leng = ~coderun.value("⏚", eventdur:1);
 	    ~leng.wait;*/
 	//
-
+/*
 	~leng = ~coderun.value(
-		         "☨_☨_☨_☨_☨_☨_☨___",
-		pitchstr:"________________",
-		eventdur:0.25, notedur:1);
+		          "☨☨☨☨☨☨☨☨",
+		pitch_str:"01234567",
+		eventdur:0.5, notedur:1);
+	~leng.wait;*/
+
+
+	~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
 	~leng.wait;
 
-	// ~leng = ~coderun.value("⊖⠀⊘⠀☥◹⠀⫂⠀⫂⊕⫀☨_⏚_", eventdur:0.25, notedur:1);
-	// ~leng.wait;
+	~leng = ~coderun.value(
+		          "☨☨☨☨☨☨☨☨",
+		pitch_str:"0abcdefg"
+		, notedur:1);
+	"weird leng".postln;
+	~leng.wait.postln;
+
 	//
-	// ~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
-	// ~leng.wait;
+	~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_⫀⫀⫀⫀", eventdur:0.25, notedur:1);
+	~leng.wait;
 	//
 	// ~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕_☨_⏚_", eventdur:0.25, notedur:1);
 	// ~leng.wait;
@@ -105,8 +114,7 @@ Buffer.freeAll;
 	// ~leng = ~coderun.value("☧_⠀⫂⠀⫂☧_⠀⫂⠀⫂⫃⫄⫅⫆", eventdur:0.25, notedur:1);
 	// ~leng.wait;
 
-		//loops the sub
-		~scorepart1.fork;
+
 };
 
 //plays the parts

@@ -17,7 +17,7 @@
 
 		//for each element of the sample array
 		//add up the duration (for wait time output)
-		~unicodebufferarray.do{arg i; ~runarray.add(0.5)};
+
 
 		/*----parse pitch sequence string----*/
 		if(pitch_str != "",{
@@ -92,21 +92,21 @@
 
 		).play();
 
+		~unicodebufferarray.do{arg i; ~runarray.add(0.5)};
 		~motifleng = 0;
 		~runarray.do({arg item; ~motifleng=~motifleng+item});
 		~motifleng=~motifleng*(eventdur*2);
 
 )};
 
-~coderun.value("cccccccc",
-	pitch_str:"0123210a",
-	eventdur:0.25
+~coderun.value("ccccccccc",
+	 pitch_str:"012345678",
+	eventdur:0.125
 );
 
 
-);
-//~coderun.value("⊖☥⊖");
 
-)
+
+);
 
 
