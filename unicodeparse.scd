@@ -11,7 +11,7 @@
 ~chuckparse = { arg mystring, lumode="sample";
 	~mystring = mystring;
 
-	"\r\nString input: %\r\n\r\n".postf(~mystring);
+	"[%] input: %\r\n".postf(lumode[0],~mystring);
 
 	//get Char Byte Values
 	~mybbody = ~mystring.ascii;
@@ -38,8 +38,14 @@
 	if( lumode=="amp", {
 	~amprunarray = List.new;
 	});
-	//buffer of
+
+
+
+	//array to hold sum of events
 	~runarray = List.new;
+
+	//text output control
+	~printverbose = false;
 
 	//scan each byte in string
 	~mybbody.do({ arg i;
@@ -50,8 +56,9 @@
 		//if postive; is Ascii
 		if( (i > 0) ,
 			{
-				"[%] Byte %; Char % -> Ascii Char [Hex: %] \r\n".postf(i.asAscii,~byteindex, ~totchar,i.asHexString(2));
-
+				if(~printverbose==true,{
+					"[%] Byte %; Char % -> Ascii Char [Hex: %] \r\n".postf(i.asAscii,~byteindex, ~totchar,i.asHexString(2));
+				});
 				/*---
 				-----ASCII PARSE RETURN LOGIC
 				---*/
@@ -69,14 +76,12 @@
 							~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
 							~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
 
-							"cursum".postln;
-							~cursum.postln;
 						});
 
 						~palette_scancounter=~palette_scancounter+1;
 					});
 
-				"Sample Referenced: %\r\n\r\n".postf(~cursam);
+				//"Sample Referenced: %\r\n\r\n".postf(~cursam);
 				});
 				/*----------sample lookup--*/
 
@@ -93,15 +98,13 @@
 							~curpit = ~unifiedPitchPalette[~palette_scancounter][1];
 							~pitchrunarray.add(~curpit);
 
-							"cursum".postln;
-							~cursum.postln;
 						});
 
 
 						~palette_scancounter=~palette_scancounter+1;
 					});
 
-				"Pitch Referenced: %\r\n\r\n".postf(~curpit);
+				//"Pitch Referenced: %\r\n\r\n".postf(~curpit);
 				});
 				/*----------pitch lookup--*/
 
@@ -117,16 +120,13 @@
 						if((fin_char[0][0].ascii == i ),{
 							~curamp = ~unifiedAmpPalette[~palette_scancounter][1];
 							~amprunarray.add(~curamp);
-
-							"curamp".postln;
-							~curamp.postln;
 						});
 
 
 						~palette_scancounter=~palette_scancounter+1;
 					});
 
-				"Amp Referenced: %\r\n\r\n".postf(~curpit);
+				//"Amp Referenced: %\r\n\r\n".postf(~curpit);
 				});
 				/*----------amp lookup--*/
 
@@ -170,8 +170,10 @@
 				if(~unicodebyte_counter==~unicodebyte_len,
 					{
 						~unibiddispbuf=~uni_charbuf.ascii;
-						"[%] Byte %; Char % -> Unicode Char [Hex: %] (% byte)\r\n".postf(~uni_charbuf,~byteindex-~unicodebyte_len+1, ~totchar,~unibiddispbuf.collect(_.asHexString(2)),~unicodebyte_len);
 
+						if(~printverbose==true,{
+							"[%] Byte %; Char % -> Unicode Char [Hex: %] (% byte)\r\n".postf(~uni_charbuf,~byteindex-~unicodebyte_len+1, ~totchar,~unibiddispbuf.collect(_.asHexString(2)),~unicodebyte_len);
+						});
 						/*---
 						-----UNICODE PARSE RETURN LOGIC
 						---*/
@@ -195,7 +197,7 @@
 						});
 
 
-						"Sample Referenced: %\r\n\r\n".postf(~cursam);
+						//"Sample Referenced: %\r\n\r\n".postf(~cursam);
 						});
 						/*----------sample lookup--*/
 
@@ -212,14 +214,12 @@
 									~curpit = ~unifiedPitchPalette[~palette_scancounter][1];
 									~pitchrunarray.add(~curpit);
 
-									"cursum".postln;
-									~cursum.postln;
 								});
 
 								~palette_scancounter=~palette_scancounter+1;
 							});
 
-							"Pitch Referenced: %\r\n\r\n".postf(~curpit);
+							//"Pitch Referenced: %\r\n\r\n".postf(~curpit);
 						});
 						/*----------pitch lookup--*/
 
@@ -236,15 +236,13 @@
 									~curamp = ~unifiedAmpPalette[~palette_scancounter][1];
 									~amprunarray.add(~curamp);
 
-									"curamp".postln;
-									~curamp.postln;
 								});
 
 
 								~palette_scancounter=~palette_scancounter+1;
 							});
 
-							"Amp Referenced: %\r\n\r\n".postf(~curpit);
+							//"Amp Referenced: %\r\n\r\n".postf(~curpit);
 						});
 						/*----------amp lookup--*/
 
@@ -266,7 +264,9 @@
 
 	});
 
-	"Total Symbols in String: %\r\n".postf(~totchar);
+	if(~printverbose==true,{
+		"Total Symbols in String: %\r\n".postf(~totchar);
+	});
 
 };
 

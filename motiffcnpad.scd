@@ -12,6 +12,8 @@
 	rep_num = 1,
 	amp_str = "";
 	(
+/*		~updatewin.value();*/
+
 		/*----parse sample sequence string----*/
 		//**string should load up a buffer called '~unicodebufferarray'
 		~chuckparse.value(in_str, lumode:"sample");
@@ -22,7 +24,7 @@
 		//add up the duration (for wait time output)
 
 
-		/*----parse pitch sequence string----*/
+		// /*----parse pitch sequence string----*/
 		//**string should load up a buffer called '~pitchrunarray'
 		if(pitch_str != "",{
 			~chuckparse.value(pitch_str, lumode:"pitch");
@@ -88,7 +90,7 @@
 		~unicodebufferarray.do{arg i; ~runarray.add(0.5)};
 		~motifleng = 0;
 		~runarray.do({arg item; ~motifleng=~motifleng+item});
-		~motifleng=~motifleng*(eventdur*2);
+		~motifleng=~motifleng*(eventdur*2)*rep_num;
 
 )};
 
@@ -105,18 +107,18 @@
 
 ~coderun.value("*__*__*_*__*__*_",
 	 pitch_str:"___1__b____1__5_",
-	pitch_gbl:1.6,
 	rep_num:~totreps
 );
-/*
-~coderun.value("⊖__⊖__⊖_", eventdur: 0.25, rep_num:4*~totreps);
-);*/
-
-);
 
 
+~coderun.value("⊖⠃⠄⊖⠃⠄⊖⠃", eventdur: 0.5, rep_num:4*~totreps);
+//~coderun.value("⊖⠃☧⊖⠃☧⊖⠃", eventdur: 0.25, rep_num:4*~totreps);
 
 
 );
+
+
+
+
 
 
