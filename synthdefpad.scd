@@ -18,9 +18,11 @@ SynthDef(\oneLoop, { |out, bufnum, start, sus_time, rel_time=0.5, amp, rate = 1|
 }).add;
 
 //EXAMPLE
-b = Array.new(1);
+/*
+b = List.new;
 b.add(Buffer.read(s, ~curpath++"/samples/chime.wav"));
-//b.add(Buffer.read(s, ~curpath++"/samples/Amen Sliced-bounce-64.wav"));
+b.add(Buffer.read(s, ~curpath++"/samples/Amen Sliced-bounce-64.wav"));
+~myseq = Pseq(b,1);
 
 //b = Buffer.read(s, ~curpath++"/samples/chime2.wav");
 //b = Buffer.read(s, ~curpath++"/samples/chime2.wav");
@@ -32,16 +34,13 @@ b.do{var i=0;~listlen=~listlen+1};
 
 Pbind(
 		\instrument,\oneLoop,
-	    \bufnum,b,
+	    \bufnum,~myseq,
 		\amp,1,
 		\dur, 1,
 		\sus_time, 1,
 		\rel_time, 1,
 		\rate, 1
 ).play();
+*/
 
-)
-
-(
-Buffer.freeAll;
 )

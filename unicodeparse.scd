@@ -11,7 +11,7 @@
 ~chuckparse = { arg mystring, lumode="sample";
 	~mystring = mystring;
 
-	"[%] input: %\r\n".postf(lumode[0],~mystring);
+	"[%]: %\r\n".postf(lumode[0],~mystring);
 
 	//get Char Byte Values
 	~mybbody = ~mystring.ascii;
@@ -74,7 +74,7 @@
 						//if a match is found..
 						if((fin_char[0][0].ascii == i ),{
 							~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
-							~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
+							~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam,{ arg buffer; buffer.postln;}));
 
 						});
 
@@ -190,7 +190,7 @@
 							//if a match is found..
 							if((fin_char[0] == ~uni_charbuf ),{
 								~cursam = ~unifiedSamplePalette[~palette_scancounter][1];
-								~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam));
+									~unicodebufferarray.add(Buffer.read(s, ~curpath++"/samples/"++~cursam,{ arg buffer; buffer.free}));
 							});
 
 							~palette_scancounter=~palette_scancounter+1;

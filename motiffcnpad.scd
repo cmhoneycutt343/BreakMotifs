@@ -16,6 +16,8 @@
 
 		/*----parse sample sequence string----*/
 		//**string should load up a buffer called '~unicodebufferarray'
+		"------\r\n".postln;
+
 		~chuckparse.value(in_str, lumode:"sample");
 
 		~runarray.fill(eventdur);
@@ -38,8 +40,6 @@
 
 			//for each element of the pitch array
 			~pitchrunarray.do{arg i;
-
-				i.postln;
 
 				//get ratio (positive or negative)
 				if (i>=0,{
@@ -75,17 +75,29 @@
 
 		});
 
-		Pbind(
-			\instrument,\oneLoop,
-			\bufnum, Pseq(~unicodebufferarray, rep_num),
-			\amp,Pseq(~amprunarray, rep_num),
-			\dur, eventdur,
-			\sus_time, notedur,
-			\rel_time, reltime,
-			\rate, Pseq(~chromseq, rep_num),
-			\legato, 0.1
 
-		).play();
+		~listlen = 0;
+		~unicodebufferarray.do{var i=0;~listlen=~listlen+1};
+		~listlen;
+
+		//print repeat number
+		if(rep_num !==1,{
+			"x%\r\n".postf(rep_num);
+		});
+
+		if(~listlen>0,{
+			Pbind(
+				\instrument,\oneLoop,
+				\bufnum, Pseq(~unicodebufferarray, rep_num),
+				\amp,Pseq(~amprunarray, rep_num),
+				\dur, eventdur,
+				\sus_time, notedur,
+				\rel_time, reltime,
+				\rate, Pseq(~chromseq, rep_num),
+				\legato, 0.1
+
+			).play();
+		});
 
 		~unicodebufferarray.do{arg i; ~runarray.add(0.5)};
 		~motifleng = 0;
@@ -107,7 +119,7 @@
 
 ~coderun.value("*__*__*_*__*__*_",
 	 pitch_str:"___1__b____1__5_",
-	rep_num:~totreps
+	rep_num:4
 );
 
 

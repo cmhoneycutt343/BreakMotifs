@@ -26,8 +26,11 @@ s.boot;
 //Unicode Parsing Fcn
 (~curpath++"/unicodeparse.scd").load;
 
-Unicode Sample Array
+//Unicode Sample Array
 (~curpath++"/unicodereferencesamps.scd").load;
+
+//more score sections
+(~curpath++"/scratchpad2.scd").load;
 
 //Motif Generating Functions
 (~curpath++"/motiffcnpad.scd").load;
@@ -40,6 +43,9 @@ Unicode Sample Array
 
 /*3. --------Motif SCORE---------*/
 (
+
+"\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n".postln;
+
 ~bpm = 120;
 TempoClock.tempo = ~bpm/60;
 
@@ -58,15 +64,15 @@ Buffer.freeAll;
 	~leng = ~coderun.value("⊖_⊘_☥_⠀⫂⠀⫂⊕◹☨◹⏚_", eventdur:0.25);~leng.wait;
 
 
-	~leng = ~coderun.value("⊖_⊘_☥_⊖_⊘_☥_☨☨☨☨", eventdur:0.25,
-		           amp_str:"____________2468");
+	~leng = ~coderun.value("☨☨☨☨", eventdur:0.25,
+		           pitch_str:"2468");
 	~leng.wait;
 
 
-/*	~leng = ~coderun.value("⏚_☦⏚_☦⏚_",
+	~leng = ~coderun.value("⏚_☦⏚_☦⏚_",
 		         pitch_str:"___d__i_");
 	~leng = ~coderun.value("____________☨☨☨☨", eventdur:0.25,
-		           amp_str:"____________2468");~leng.wait;*/
+		           amp_str:"____________2468");~leng.wait;
 
 	~leng = ~coderun.value("☧_⠆⫂⠆⫂", eventdur:0.25,rep_num:4);~leng.wait;
 	~leng = ~coderun.value("☧_⠆⫂", eventdur:0.25,rep_num:1);~leng.wait;
@@ -77,7 +83,7 @@ Buffer.freeAll;
 		         pitch_str:"34566543");~leng.wait;
 
 	~leng = ~coderun.value("⊖☨⊖☨⊖☨⊖☨☨⊖☨☨", pitch_gbl:2);~leng.wait;
-	~leng = ~coderun.value("⊖☨⊖☨", eventdur:0.25, pitch_gbl:2);~leng.wait;
+	~leng = ~coderun.value("⏚☩⏚☩", eventdur:0.25, pitch_gbl:2);~leng.wait;
 	~leng = ~coderun.value("⊖⊖☨☨", eventdur:0.25, pitch_gbl:2);~leng.wait;
 	~leng = ~coderun.value("⊖☨⊖☨⊖☨⊖☨☨⊖☨☨", pitch_gbl:2);
 	~leng = ~coderun.value("☩☩☩☩☩☩☩☩☩☩☩☩",
@@ -88,7 +94,7 @@ Buffer.freeAll;
 		);~leng.wait;
 
 	~leng = ~coderun.value("⊖☨⊖☨⊖☨☨⊖☨☨", pitch_gbl:0.75);~leng.wait;
-	~leng = ~coderun.value("⊖☨⊖☨", eventdur:0.25, pitch_gbl:0.75);~leng.wait;
+	~leng = ~coderun.value("⏚☩⏚☩", eventdur:0.25, pitch_gbl:0.75);~leng.wait;
 	~leng = ~coderun.value("⊖☨☨⊖☨☨", pitch_gbl:0.75);~leng.wait;
 	~leng = ~coderun.value("⊖☨⊖☨⊖☨⊖☨⊖☨⊖☨", eventdur:0.25, pitch_gbl:0.75,
 		amp_str:"____76543210"
