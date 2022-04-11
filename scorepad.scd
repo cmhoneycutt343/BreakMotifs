@@ -10,7 +10,7 @@ s.boot;
 (
 //make network available
 ~b = NetAddr.new("127.0.0.1", 12000);
-// ~b.sendMsg("/hello", "there");
+~b.sendMsg("/hello", "there");
 
 
 //all sub-files are relative to this file)
@@ -57,14 +57,14 @@ s.boot;
 
 //stop  running code and free up buffer
 //CmdPeriod.runc
-Buffer.freeAll;
+// Buffer.freeAll;
 
 ~riff_index;
 
 ~unicodebufferarray;
 
 ~score3 = {
-	~bpm = 75;
+	~bpm = 100;
 	TempoClock.tempo = ~bpm/60;
 	//öↇ-𝑎
 

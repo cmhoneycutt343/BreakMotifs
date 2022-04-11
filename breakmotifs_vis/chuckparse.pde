@@ -1,10 +1,9 @@
 //takes 
-riffdata chuckparse(String rawbytes)
+String chuckparse(String rawbytes, boolean count_only)
 {
   //println("bytes received: %d", rawbytes.length());
 
   //total chars
-  int total_chars = 0;
   int byte_index=0;
   int char_index=0;
   
@@ -141,6 +140,14 @@ riffdata chuckparse(String rawbytes)
   }
   
   //println();
+  if(!count_only)
+  {
+    return output;
+  } 
+  else
+  {
+     //char_index
+     return str(char_index);
+  }
   
-  return output;
 }

@@ -114,13 +114,13 @@
 	   amp_str:"2468",
 );*/
 
-~coderun.value("*__*__*_*__*__*_",
-	 pitch_str:"___1__b____1__5_",
-	rep_num:4
-);
+// coderun.value("*__*__*_*__*__*_",
+// 	pitch_str:"___1__b____1__5_",
+// 	rep_num:4
+// );
 
 
-~coderun.value("⊖⠃⠄⊖⠃⠄⊖⠃", eventdur: 0.5, rep_num:4*~totreps);
+/*~coderun.value("⊖⠃⠄⊖⠃⠄⊖⠃", eventdur: 0.5, rep_num:4*~totreps);*/
 //~coderun.value("⊖⠃☧⊖⠃☧⊖⠃", eventdur: 0.25, rep_num:4*~totreps);
 
 
