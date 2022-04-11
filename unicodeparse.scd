@@ -3,6 +3,8 @@
 //in dec [ -30, -103, -91, 42, -62, -95, -17, -67, -95 ]
 //should output:
 
+
+
 //*Unicode - 3 Byte;
 //*ascii
 //*Unicode - 2 Byte;
@@ -12,6 +14,27 @@
 	~mystring = mystring;
 
 	"[%]: %\r\n".postf(lumode[0],~mystring);
+
+
+
+	if( lumode=="sample", {
+
+		~unicodebufferarray = List.new;
+		~b.sendMsg("/r_index",~riff_index);
+		~riff_index = ~riff_index+1;
+		~b.sendMsg("/ssymb", ~mystring);
+	});
+	if( lumode=="pitch", {
+	~pitchrunarray = List.new;
+		~b.sendMsg("/p-ar", ~mystring);
+	});
+	if( lumode=="amp", {
+	~amprunarray = List.new;
+		~b.sendMsg("/a-ar", ~mystring);
+	});
+
+
+
 
 	//get Char Byte Values
 	~mybbody = ~mystring.ascii;

@@ -12,11 +12,8 @@
 	rep_num = 1,
 	amp_str = "";
 	(
-/*		~updatewin.value();*/
-
 		/*----parse sample sequence string----*/
 		//**string should load up a buffer called '~unicodebufferarray'
-		"------\r\n".postln;
 
 		~chuckparse.value(in_str, lumode:"sample");
 
@@ -127,6 +124,15 @@
 //~coderun.value("⊖⠃☧⊖⠃☧⊖⠃", eventdur: 0.25, rep_num:4*~totreps);
 
 
+//packet seperation function
+~riff_event = {arg time_wait = 0;
+	(
+		~riff_index = 0;
+
+		"-*re-\r\n".postln;
+		~b.sendMsg("/pkt_end", "->>-\r\n");
+		time_wait.wait;
+	)};
 );
 
 
