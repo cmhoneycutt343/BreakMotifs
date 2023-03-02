@@ -64,7 +64,7 @@ s.boot;
 ~unicodebufferarray;
 
 ~score3 = {
-	~bpm = 100;
+	~bpm = 200;
 	TempoClock.tempo = ~bpm/60;
 	//öↇ-𝑎
 

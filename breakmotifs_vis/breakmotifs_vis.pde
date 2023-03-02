@@ -19,7 +19,7 @@ int riff_count=0;
 boolean riff_busy=true;
 
 void setup() {
-  size(800,200);
+  size(800,800);
   frameRate(25);
   /* start oscP5, listening for incoming messages at port 12000 */
   oscP5 = new OscP5(this,12000);
@@ -88,10 +88,23 @@ void draw() {
        }
        
        char s_char = cur_riffs[i].s_data.charAt(j);
-      
+
+        //draw if not a space      
        if(s_char!='_')
        {
-       text(cur_riffs[i].s_data.charAt(j),50+j*25,100+50*i);
+         //text(cur_riffs[i].s_data.charAt(j),50+j*25,100+50*i);
+         if(cur_riffs[i].has_p_data)
+         {
+             int p_poff = cur_riffs[i].p_data.charAt(j);
+             
+             fill(255,0,0);
+             
+             text("555",50+j*25,100+50*i+(10*p_poff));
+         }
+         
+         else{
+         text(s_char,50+j*25,100+50*i);
+         }
        }
     }
     
